@@ -5,43 +5,67 @@
 
 ## Installation
 
-   1. Install Apache server on Ubuntu
-    sudo apt install apache2
+1. Install apache server 
 
-   2. Install php runtime and php mysql connector
-    sudo apt install php libapache2-mod-php php-mysql
+```bash
+  sudo apt install apache2
 
-   3. Install MySQL server
-    sudo apt install mysql-server 
+```
 
-   4. Login to MySQL server
-    sudo mysql -u root
+2. Install php runtime and php mysql connector
+```bash
+sudo apt install php libapache2-mod-php php-mysql
 
-   5. Change authentication plugin to mysql_native_password (change the password to something strong)
-    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password by 'yogesh@123';
+```
+3. Install MySQL server
+```bash
+sudo apt install mysql-server 
 
-   6. Create a new database user for wordpress (change the password to something strong)
-    CREATE USER 'wp_user'@localhost IDENTIFIED BY 'yogesh@123';
+```
+4. Login to MySQL server
+```bash
+sudo mysql -u root
 
-   7. Create a database for wordpress
-    CREATE DATABASE wordpress;
+```
+5. Change authentication plugin to mysql_native_password (change the password to something strong)
+```bash
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password by 'yogesh@123';
 
-   8. Grant all privilges on the database 'wp' to the newly created user
-    GRANT ALL PRIVILEGES ON wordpress.* TO 'wp_user'@localhost;
+```
+6. Create a new database user for wordpress (change the password to something strong)
+```bash
+CREATE USER 'wp_user'@localhost IDENTIFIED BY 'yogesh@123';
 
-   9. Download wordpress
-    cd /tmp
-    wget https://wordpress.org/latest.tar.gz
+```
+7. Create a database for wordpress
+```bash
+CREATE DATABASE wordpress;
 
-   10. Unzip
-    tar -xvf latest.tar.gz
+```
+8. Grant all privilges on the database 'wordpress' to the newly created user
+```bash
+GRANT ALL PRIVILEGES ON wp.* TO 'wordpress_user'@localhost;
 
-   11. Move wordpress folder to apache document root
-    sudo mv wordpress/ /var/www/html
+```
+9. Download wordpress
+```bash
+cd /tmp
+wget https://wordpress.org/latest.tar.gz
 
-   12. Command to restart/reload apache server
-    sudo systemctl restart apache2
-  OR
+```
+10. Unzip
+```bash
+tar -xvf latest.tar.gz
 
-    sudo systemctl reload apache2
+```
+11. Move wordpress folder to apache document root
+```bash
+sudo mv wordpress/ /var/www/html
+
+```
+12. Command to restart/reload apache server
+```bash
+sudo systemctl restart apache2
+
+```
     
